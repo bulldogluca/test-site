@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hi tech</title>
+<style>
+  html, body{
+    margin:0;
+    height:100%;
+    background:#000;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2rem;
+    font-family: system-ui, sans-serif;
+  }
+
+  h1{
+    font-size: 2rem;
+    font-weight: 600;
+    margin:0;
+  }
+
+  button{
+    background:#fff;
+    color:#000;
+    border:none;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    cursor:pointer;
+  }
+
+  button:hover{
+    background:#ddd;
+  }
+
+  .overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .overlay.show{
+    display:flex;
+  }
+
+  .box{
+    background:#111;
+    color:#fff;
+    padding: 1.5rem 2rem;
+    border:1px solid #333;
+    text-align:center;
+  }
+
+  .box button{
+    margin-top:1rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>hi tech</h1>
+<button id="openBtn">song</button>
+
+<div class="overlay" id="overlay">
+  <div class="box">
+    <p>yeezy season approaching</p>
+    <button id="closeBtn">close</button>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('overlay');
+  document.getElementById('openBtn').addEventListener('click', () => overlay.classList.add('show'));
+  document.getElementById('closeBtn').addEventListener('click', () => overlay.classList.remove('show'));
+  overlay.addEventListener('click', (e) => { if(e.target === overlay) overlay.classList.remove('show'); });
+</script>
+
+</body>
+</html>
